@@ -38,8 +38,11 @@ app.use(mongoSanitize());
 app.use(compression());
 
 // enable cors
-app.use(cors());
-app.options('*', cors());
+app.use(
+  cors({
+    origin: ['https://next-js-frontend-4mv2.vercel.app','http://localhost:3000'],
+  })
+);
 
 // jwt authentication
 app.use(passport.initialize());

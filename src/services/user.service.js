@@ -5,13 +5,7 @@ const Token = require('../models/token.model');
 const { tokenTypes } = require('../config/tokens');
 const { User } = require('../models');
 
-/**
- * Create a user
- * @param {Object} userBody
- * @returns {Promise<User>}
- */
 const createUser = async (userBody) => {
-  console.log(userBody)
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }

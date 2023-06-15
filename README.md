@@ -1,3 +1,10 @@
+## PRODUCT MANGEMENT
+
+Prerequisite
+
+1- Create a .env file in the root directory of Frontend copy everything from .env.example
+2- Replace the values with your desired values in the .env file.
+
 ## Quick Start
 
 Install the dependencies:
@@ -12,57 +19,13 @@ Run project
 npm run dev
 ```
 
-
-## Commands
-
-Running locally:
-
-```bash
-npm run dev
-```
-
-Running in production:
-
-```bash
-npm start
-```
-
-Docker:
-
-```bash
-# run docker container in development mode
-yarn docker:dev
-
-# run docker container in production mode
-yarn docker:prod
-
-# run all tests in a docker container
-yarn docker:test
-```
-
-Linting:
-
-```bash
-# run ESLint
-yarn lint
-
-# fix ESLint errors
-yarn lint:fix
-
-# run prettier
-yarn prettier
-
-# fix prettier errors
-yarn prettier:fix
-```
-
 ## Environment Variables
 
 The environment variables can be found and modified in the `.env` file. They come with these default values:
 
 ```bash
 # Port number
-PORT=3000
+PORT=5000
 
 # URL of the Mongo DB
 MONGODB_URL=mongodb://127.0.0.1:27017/
@@ -99,23 +62,6 @@ src\
  |--app.js          # Express app
  |--index.js        # App entry point
 ```
-
-### API Endpoints
-
-List of available routes:
-
-**Auth routes**:\
-`POST /auth/register` - register\
-`POST /auth/login` - login\
-`POST /auth/refresh-tokens` - refresh auth tokens\
-`POST /auth/forgot-password` - send reset password email\
-
-**User routes**:\
-`POST /users` - create a user\
-`GET /users` - get all users\
-`GET /users/:userId` - get user\
-`PATCH /users/:userId` - update user\
-`DELETE /users/:userId` - delete user\
 
 ## Validation
 

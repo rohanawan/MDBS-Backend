@@ -3,6 +3,7 @@
 Prerequisite
 
 1- Create a .env file in the root directory of Frontend copy everything from .env.example
+
 2- Replace the values with your desired values in the .env file.
 
 ## Quick Start

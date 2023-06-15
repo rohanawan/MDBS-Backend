@@ -38,8 +38,11 @@ app.use(mongoSanitize());
 app.use(compression());
 
 // enable cors
-app.use(cors());
-app.options('*', cors());
+app.use(
+  cors({
+    origin: ['https://next-js-frontend-4mv2.vercel.app', 'http://localhost:5000'],
+  })
+);
 
 // jwt authentication
 app.use(passport.initialize());
@@ -50,7 +53,6 @@ if (config.env === 'production') {
   app.use('/auth', authLimiter);
 }
 
-// v1 api routes
 app.use('/', routes);
 
 // checking the server's health

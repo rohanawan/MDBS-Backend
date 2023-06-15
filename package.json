@@ -3,7 +3,7 @@
   "version": "1.7.0",
   "description": "Node.js app",
   "main": "src/index.js",
-  "repository": "https://github.com/Node.js.git",
+  "repository": "https://github.com/rohanawan/NodeJS-Mobiz-backend",
   "author": "Rohan Ilyas",
   "license": "MIT",
   "engines": {

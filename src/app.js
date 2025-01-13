@@ -49,7 +49,7 @@ app.use(compression());
 // enable cors
 app.use(
   cors({
-    origin: ['https://next-js-frontend-4mv2.vercel.app'],
+    origin: ['*'],
   })
 );
 

@@ -49,7 +49,7 @@ app.use(compression());
 // enable cors
 app.use(
   cors({
-    origin: ['https://mdbs-mgip57xp4-rohanawans-projects.vercel.app'],
+    origin: ['https://mdbs-byuk.vercel.app/'],
   })
 );
 

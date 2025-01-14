@@ -48,7 +48,12 @@ app.use(
 );
 
 // Handle preflight requests
-app.options('*', cors());
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://mdbs-byuk.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS,PATCH');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  res.sendStatus(204); // No content
+});
 
 // jwt authentication
 app.use(passport.initialize());

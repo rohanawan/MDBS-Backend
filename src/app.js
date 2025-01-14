@@ -37,30 +37,31 @@ app.use(mongoSanitize());
 // gzip compression
 app.use(compression());
 
-// enable CORS
 app.use(
   cors({
-    origin: 'https://mdbs-ebon.vercel.app',
-    credentials: true,
+    origin: '*', // Allow all origins
+    credentials: true, // Include credentials (cookies, authorization headers, etc.)
   })
 );
 
 // Handle preflight requests
 app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://mdbs-ebon.vercel.app');
+  res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS,PATCH');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.sendStatus(204);
+  res.sendStatus(204); // No content
 });
 
+// Middleware to log incoming requests
 app.use((req, res, next) => {
   console.log('Origin:', req.headers.origin);
   console.log('Request Method:', req.method);
   next();
 });
 
+// Add CORS headers for every response (allow all origins)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://mdbs-ebon.vercel.app');
+  res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
   next();
 });
 

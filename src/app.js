@@ -40,14 +40,14 @@ app.use(compression());
 // enable CORS
 app.use(
   cors({
-    origin: 'https://mdbs-byuk.vercel.app',
+    origin: 'https://mdbs-ebon.vercel.app',
     credentials: true,
   })
 );
 
 // Handle preflight requests
 app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://mdbs-byuk.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://mdbs-ebon.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS,PATCH');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   res.sendStatus(204);
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://mdbs-byuk.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://mdbs-ebon.vercel.app');
   next();
 });
 

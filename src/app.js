@@ -53,6 +53,16 @@ app.options('*', (req, res) => {
   res.sendStatus(204);
 });
 
+app.use((req, res, next) => {
+  console.log('Origin:', req.headers.origin);
+  console.log('Request Method:', req.method);
+  next();
+});
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://mdbs-byuk.vercel.app');
+  next();
+});
 
 // jwt authentication
 app.use(passport.initialize());

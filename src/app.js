@@ -21,18 +21,6 @@ if (config.env !== 'test') {
   app.use(morgan.errorHandler);
 }
 
-// Enable CORS
-app.use(function (req, res, next) {
-  //Enabling CORS
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization'
-  );
-  next();
-});
-
 // set security HTTP headers
 app.use(helmet());
 
@@ -49,15 +37,18 @@ app.use(mongoSanitize());
 // gzip compression
 app.use(compression());
 
-// enable cors
+// enable CORS
 app.use(
   cors({
-    origin: '*',
+    origin: 'https://mdbs-byuk.vercel.app', // Allow only the frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 );
+
+// Handle preflight requests
+app.options('*', cors());
 
 // jwt authentication
 app.use(passport.initialize());

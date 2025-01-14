@@ -40,9 +40,7 @@ app.use(compression());
 // enable CORS
 app.use(
   cors({
-    origin: 'https://mdbs-byuk.vercel.app', // Allow only the frontend origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: 'https://mdbs-byuk.vercel.app',
     credentials: true,
   })
 );
@@ -52,8 +50,9 @@ app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Origin', 'https://mdbs-byuk.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS,PATCH');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.sendStatus(204); // No content
+  res.sendStatus(204);
 });
+
 
 // jwt authentication
 app.use(passport.initialize());

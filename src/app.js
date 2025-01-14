@@ -52,8 +52,8 @@ app.use(compression());
 // enable cors
 app.use(
   cors({
-    origin: 'https://mdbs-byuk.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
